@@ -1,0 +1,22 @@
+{
+  "name": "as",
+  "version": "1.0.0",
+  "description": "Curso de ingreso con JavaScript\r dsasadsadsadasdsad",
+  "main": "as",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ger08Dev/CursoIngresoJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ger08Dev/CursoIngresoJS/issues"
+  },
+  "homepage": "https://github.com/Ger08Dev/CursoIngresoJS#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
