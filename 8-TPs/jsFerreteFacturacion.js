@@ -15,11 +15,11 @@ app.controller("controladorFacturacion",function($scope)
 		$scope.Sumar=function()
 		{
 			$scope.rdo=Number($scope.datos.precioUno)+Number($scope.datos.precioDos)+Number($scope.datos.precioTres);
-		}
+		};
 		$scope.Promedio=function()
 		{
 			$scope.rdo=(Number($scope.datos.precioUno)+Number($scope.datos.precioDos)+Number($scope.datos.precioTres))/3;
-		}
+		};
 		$scope.PrecioFinal=function()
 		{
 			$scope.rdo=(Number($scope.datos.precioUno)+Number($scope.datos.precioDos)+Number($scope.datos.precioTres))*1.21;
