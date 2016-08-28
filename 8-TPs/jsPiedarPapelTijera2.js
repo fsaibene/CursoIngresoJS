@@ -1,104 +1,72 @@
-var eleccionMaquina;
-var ContadorDeEmpates=0;
-var ContadorDeGanadas=0;
-var ContadorDePerdidas=0;
 
-function comenzar()
-{
-	//Genero el número RANDOM entre 1 y 3
-	 	numeroSecreto =Math.floor( Math.random()*3)+1;
-		//alert(numeroSecreto);
-		switch(numeroSecreto)
+var app = angular.module("PPT2", []);
+
+app.controller("controladorPPT2", function ($scope) {
+
+	var maq;
+	$scope.contadorPierde=0;
+	$scope.contadorGana=0;
+	$scope.contadorEmpate=0;
+	$scope.comenzar= function () {
+
+		$scope.eleccionMaquina = Math.floor(Math.random() * 3)+1;
+		maq=  $scope.eleccionMaquina;
+	};
+	function Perder() {
+		alert("Perdio!");
+		$scope.contadorPierde++;
+	}
+	function Ganar() {
+		alert("Gano!");
+		$scope.contadorGana++;
+	}
+	function Empatar() {
+		alert("Empato!");
+		$scope.contadorEmpate++;
+	}
+
+	$scope.piedra = function () {
+		switch (maq)
 		{
 			case 1:
-				eleccionMaquina="piedra";
+				Empatar();
 				break;
 			case 2:
-				eleccionMaquina="papel";
+				Perder();
 				break;
 			case 3:
-				eleccionMaquina="tijera";
-				break;
-
+				Ganar();
 		}
-		//alert(eleccionMaquina);
+		$scope.comenzar();
+	};
+	$scope.papel = function () {
+		switch (maq)
+		{
+			case 1:
+				Ganar();
+				break;
+			case 2:
+				Empatar();
+				break;
+			case 3:
+				Perder();
+		}
+		$scope.comenzar();
 
-
-
-}//FIN DE LA FUNCIÓN
-function piedra()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="piedra";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");	
-		ContadorDeEmpates++;	
-	}
-	else if(eleccionMaquina=="tijera")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
+	};
+	$scope.tijera = function () {
+		switch (maq)
+		{
+			case 1:
+				Perder();
+				break;
+			case 2:
+				Ganar();
+				break;
+			case 3:
+				Empatar();
+		}
+		$scope.comenzar();
 	}
 
-mostarResultado();
-
-}//FIN DE LA FUNCIÓN
-function papel()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="papel";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");
-		ContadorDeEmpates++;		
-
-	}
-	else if(eleccionMaquina=="piedra")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
-	}
-mostarResultado();
-}//FIN DE LA FUNCIÓN
-function tijera()
-{
-	alert("la maquina selecciono: "+eleccionMaquina);
-	eleccionHumano="tijera";
-	if(eleccionHumano==eleccionMaquina)
-	{
-		alert("empate.");
-		ContadorDeEmpates++;		
-	}
-	else if(eleccionMaquina=="papel")
-	{
-		alert("vos ganastes.");
-		ContadorDeGanadas++;
-	}
-	else
-	{
-		alert("ganó la Maquina.");
-		ContadorDePerdidas++;
-	}
-mostarResultado();
-}//FIN DE LA FUNCIÓN
-
-function mostarResultado()
-{
-
-document.getElementById('empatadas').value=ContadorDeEmpates + " partidas empatadas.";
-document.getElementById('perdidas').value=ContadorDePerdidas + " partidas perdidas.";
-document.getElementById('ganadas').value=ContadorDeGanadas + " partidas ganadas.";
-
-comenzar();
-}
+});

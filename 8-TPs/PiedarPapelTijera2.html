@@ -10,18 +10,19 @@
 		<!--final de Estilos-->
 
 		<!--Lógica-Programación-->
+		<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
 		<script type="text/javascript" src="jsPiedarPapelTijera2.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body onload="comenzar()">
+	<body ng-app="PPT2" ng-controller="controladorPPT2" data-ng-init="comenzar()" >
 		<div class="CajaUno animated bounceInDown">
 			
 
-			<input type="text" readonly id="ganadas">
-			<input type="text" readonly id="perdidas">
-			<input type="text" readonly id="empatadas">
+			<input type="text" ng-model="contadorGana" readonly id="ganadas">
+			<input type="text" ng-model="contadorPierde" readonly id="perdidas">
+			<input type="text" ng-model="contadorEmpate" readonly id="empatadas">
 			<form id="FormIngreso">
 				<center>
 					<img src="imagenes/interrogacion.jpg" >
@@ -31,13 +32,13 @@
 			
 		</div>
 		<div class="CajaUno animated bounceInLeft">
-			
 
-			
-			
-			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" onclick="piedra()">
-			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" onclick="papel()">
-			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" onclick="tijera()">
+
+
+
+			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" ng-click="piedra()">
+			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" ng-click="papel()">
+			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" ng-click="tijera()">
 			
 
 			
