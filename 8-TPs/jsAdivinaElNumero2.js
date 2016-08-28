@@ -9,20 +9,42 @@
 Desde  6 Intentos hasta 10:”falta técnica”
 Más de 10 intentos: “afortunado en el amor!!”.*/
 
-var numeroSecreto; 
-var contadorIntentos;
 
-function comenzar()
-{
-	//Genero el número RANDOM entre 1 y 100
-	 
-	
+var app = angular.module("AdivinaElNumero2", []);
 
-}
+app.controller("controladorAdivina2", function ($scope) {
+    $scope.comenzar = function () {
+        $scope.contadorIntentos = 0;
+        $scope.numeroSecreto= Math.floor(Math.random() * 100) + 1 ;
+    };
 
-function verificar()
-{
-	
-	
+    $scope.verificar = function ()
+    {
+        var msj = "afortunado en el amor!!";
+        var uno = "usted es un Psíquico";
+        var dos = "excelente percepción";
+        var tres = "Esto es suerte";
+        var cuatro = "Excelente técnica";
+        var cinco = "usted está en la media";
+        var seis = "falta técnica";
+        if($scope.ingreso == $scope.numeroSecreto) {
+            if($scope.contadorIntentos == 1)
+            {msj=uno};
+            if($scope.contadorIntentos == 2)
+            {msj=dos};
+            if($scope.contadorIntentos == 3)
+            {msj=tres};
+            if($scope.contadorIntentos == 4)
+            {msj=cuatro};
+            if($scope.contadorIntentos == 5)
+            {msj=cinco};
+            if($scope.contadorIntentos >= 6 && $scope.contadorIntentos <= 10)
+            {msj=seis};
 
-}
+            alert(msj + $scope.contadorIntentos + " intentos");
+            $scope.contadorIntentos=0;
+        }else
+            $scope.contadorIntentos++;
+
+    }
+});
